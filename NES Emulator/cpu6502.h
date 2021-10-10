@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <vector>
 #include <string>
+#include <map>
 
 class Bus;
 
@@ -36,6 +37,9 @@ public:
 	void reset();
 	void irq();
 	void nmi();
+
+	bool complete();
+	std::map<uint16_t, std::string> disassemble(uint16_t nStart, uint16_t nStop);
 
 private:
 	Bus			*bus = nullptr;
