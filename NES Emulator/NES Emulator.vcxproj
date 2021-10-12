@@ -88,11 +88,20 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>
+      </Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -142,15 +151,24 @@
     <ClCompile Include="Bus.cpp" />
     <ClCompile Include="Cartridge.cpp" />
     <ClCompile Include="cpu6502.cpp" />
-    <ClCompile Include="olcNes_Video1_6502.cpp" />
+    <ClCompile Include="Mapper.cpp" />
+    <ClCompile Include="Mapper_000.cpp" />
+    <ClCompile Include="olcNes_PPU_Backgrounds.cpp" />
     <ClCompile Include="ppu2C02.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bus.h" />
     <ClInclude Include="Cartridge.h" />
     <ClInclude Include="cpu6502.h" />
+    <ClInclude Include="Mapper.h" />
+    <ClInclude Include="Mapper_000.h" />
     <ClInclude Include="olcPixelGameEngine.h" />
     <ClInclude Include="ppu2C02.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="..\nestest.nes">
+      <FileType>Document</FileType>
+    </CopyFileToFolders>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

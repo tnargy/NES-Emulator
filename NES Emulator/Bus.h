@@ -1,9 +1,12 @@
 #pragma once
+
+#include <array>
 #include <cstdint>
+#include <memory>
+
 #include "cpu6502.h"
 #include "ppu2C02.h"
 #include "Cartridge.h"
-#include <array>
 
 class Bus
 {
