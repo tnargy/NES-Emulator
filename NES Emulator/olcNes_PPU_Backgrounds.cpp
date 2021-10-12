@@ -93,6 +93,8 @@ public:
 	bool bEmulationRun = false;
 	float fResidualTime = 0.0f;
 
+	uint8_t nSelectedPalette = 0x00;
+
 	std::string hex(uint32_t n, uint8_t d)
 	{
 		std::string s(d, '0');
@@ -215,9 +217,13 @@ public:
 
 		if (GetKey(olc::Key::R).bPressed) nes.reset();
 		if (GetKey(olc::Key::SPACE).bPressed) bEmulationRun = !bEmulationRun;
+		if (GetKey(olc::Key::P).bPressed) (++nSelectedPalette) &= 0x07;
 
 		DrawCpu(516, 2);
 		DrawCode(516, 72, 26);
+
+		DrawSprite(516, 348, &nes.ppu.GetPatternTable(0, nSelectedPalette));
+		DrawSprite(648, 348, &nes.ppu.GetPatternTable(1, nSelectedPalette));
 
 		DrawSprite(0, 0, &nes.ppu.GetScreen(), 2);
 		return true;
