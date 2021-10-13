@@ -173,8 +173,6 @@ public:
 	bool OnUserCreate()
 	{
 		cart = std::make_shared<Cartridge>("nestest.nes");
-		if (!cart->ImageValid())
-			return false;
 
 		nes.insertCartridge(cart);
 
@@ -221,6 +219,16 @@ public:
 
 		DrawCpu(516, 2);
 		DrawCode(516, 72, 26);
+
+		// Draw Palettes & Pattern Tables ==============================================
+		const int nSwatchSize = 6;
+		for (int p = 0; p < 8; p++) // For each palette
+			for (int s = 0; s < 4; s++) // For each index
+				FillRect(516 + p * (nSwatchSize * 5) + s * nSwatchSize, 340,
+					nSwatchSize, nSwatchSize, nes.ppu.GetColorFromPalleteRam(p, s));
+
+		// Draw selection reticule around selected palette
+		DrawRect(516 + nSelectedPalette * (nSwatchSize * 5) - 1, 339, (nSwatchSize * 4), nSwatchSize, olc::WHITE);
 
 		DrawSprite(516, 348, &nes.ppu.GetPatternTable(0, nSelectedPalette));
 		DrawSprite(648, 348, &nes.ppu.GetPatternTable(1, nSelectedPalette));

@@ -121,7 +121,7 @@ bool Cartridge::ppuRead(uint16_t addr, uint8_t& data)
 bool Cartridge::ppuWrite(uint16_t addr, uint8_t data)
 {
 	uint32_t mapped_addr = 0;
-	if (pMapper->ppuMapRead(addr, mapped_addr))
+	if (pMapper->ppuMapWrite(addr, mapped_addr))
 	{
 		vCHRMemory[mapped_addr] = data;
 		return true;
