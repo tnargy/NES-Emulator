@@ -64,8 +64,5 @@
     <CopyFileToFolders Include="..\nestest.nes">
       <Filter>Resource Files</Filter>
     </CopyFileToFolders>
-    <CopyFileToFolders Include="..\Legend of Zelda.nes">
-      <Filter>Resource Files</Filter>
-    </CopyFileToFolders>
   </ItemGroup>
 </Project>
