@@ -21,7 +21,7 @@
     <ClCompile Include="cpu6502.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="olcNes_PPU_Backgrounds.cpp">
+    <ClCompile Include="olcNes_PPU_Foregrounds.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Cartridge.cpp">

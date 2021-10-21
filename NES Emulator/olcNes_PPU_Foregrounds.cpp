@@ -114,6 +114,16 @@ public:
 	{
 		Clear(olc::DARK_BLUE);
 
+		nes.controller[0] = 0x00;
+		nes.controller[0] |= GetKey(olc::Key::X).bHeld ? 0x80 : 0x00;
+		nes.controller[0] |= GetKey(olc::Key::Z).bHeld ? 0x40 : 0x00;
+		nes.controller[0] |= GetKey(olc::Key::A).bHeld ? 0x20 : 0x00;
+		nes.controller[0] |= GetKey(olc::Key::S).bHeld ? 0x10 : 0x00;
+		nes.controller[0] |= GetKey(olc::Key::UP).bHeld ? 0x08 : 0x00;
+		nes.controller[0] |= GetKey(olc::Key::DOWN).bHeld ? 0x04 : 0x00;
+		nes.controller[0] |= GetKey(olc::Key::LEFT).bHeld ? 0x02 : 0x00;
+		nes.controller[0] |= GetKey(olc::Key::RIGHT).bHeld ? 0x01 : 0x00;
+
 		if (bEmulationRun)
 		{
 			if (fResidualTime > 0.0f)

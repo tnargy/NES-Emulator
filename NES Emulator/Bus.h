@@ -20,6 +20,8 @@ public:
     std::array<uint8_t, 2 * 1024> cpuRam; // Fake RAM
     std::shared_ptr<Cartridge> cart;
 
+    uint8_t controller[2];
+
     void cpuWrite(uint16_t addr, uint8_t data);
     uint8_t cpuRead(uint16_t addr, bool bReadOnly = false);
 
@@ -29,4 +31,5 @@ public:
 
 private:
     uint32_t nSystemClockCounter = 0;
+    uint8_t controller_state[2];
 };

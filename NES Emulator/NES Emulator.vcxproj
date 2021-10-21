@@ -153,7 +153,7 @@
     <ClCompile Include="cpu6502.cpp" />
     <ClCompile Include="Mapper.cpp" />
     <ClCompile Include="Mapper_000.cpp" />
-    <ClCompile Include="olcNes_PPU_Backgrounds.cpp" />
+    <ClCompile Include="olcNes_PPU_Foregrounds.cpp" />
     <ClCompile Include="ppu2C02.cpp" />
   </ItemGroup>
   <ItemGroup>
