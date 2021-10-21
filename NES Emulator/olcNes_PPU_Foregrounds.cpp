@@ -156,14 +156,26 @@ public:
 		if (GetKey(olc::Key::P).bPressed) (++nSelectedPalette) &= 0x07;
 
 		DrawCpu(516, 2);
-		DrawCode(516, 72, 26);
+		//DrawCode(516, 72, 26);
+		 
+		 
+		// Draw OAM Contents (first 26 out of 64) ======================================
+		for (int i = 0; i < 26; i++)
+		{
+			std::string s = hex(i, 2) + ": (" + std::to_string(nes.ppu.pOAM[i * 4 + 3])
+				+ ", " + std::to_string(nes.ppu.pOAM[i * 4 + 0]) + ") "
+				+ "ID: " + hex(nes.ppu.pOAM[i * 4 + 1], 2) +
+				+" AT: " + hex(nes.ppu.pOAM[i * 4 + 2], 2);
+			DrawString(516, 72 + i * 10, s);
+		}
+
 
 		// Draw Palettes & Pattern Tables ==============================================
 		const int nSwatchSize = 6;
 		for (int p = 0; p < 8; p++) // For each palette
 			for (int s = 0; s < 4; s++) // For each index
 				FillRect(516 + p * (nSwatchSize * 5) + s * nSwatchSize, 340,
-					nSwatchSize, nSwatchSize, nes.ppu.GetColorFromPalleteRam(p, s));
+					nSwatchSize, nSwatchSize, nes.ppu.GetColorFromPaletteRam(p, s));
 
 		// Draw selection reticule around selected palette
 		DrawRect(516 + nSelectedPalette * (nSwatchSize * 5) - 1, 339, (nSwatchSize * 4), nSwatchSize, olc::WHITE);
@@ -191,7 +203,7 @@ public:
 
 int main()
 {
-	ROM_NAME = "nestest.nes";
+	ROM_NAME = "donkey kong.nes";
 	Demo_olc6502 demo;
 	demo.Construct(780, 480, 2, 2);
 	demo.Start();

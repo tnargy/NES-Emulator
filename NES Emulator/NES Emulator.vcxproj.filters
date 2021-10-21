@@ -61,6 +61,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <CopyFileToFolders Include="..\donkey kong.nes">
+      <Filter>Resource Files</Filter>
+    </CopyFileToFolders>
     <CopyFileToFolders Include="..\nestest.nes">
       <Filter>Resource Files</Filter>
     </CopyFileToFolders>
